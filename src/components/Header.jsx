@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import logoHero2 from "@/assets/logomr.png";
+import logoHeader from "@/assets/logoheader.png";
 import { useUTM } from "@/hooks/useUTM";
 import { waUrlFromMessage, formatQuickMessage } from "@/utils/whatsapp";
 
@@ -10,43 +11,110 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
+
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-      ? 'backdrop-blur-md bg-zinc-950/90 border-b border-zinc-800/80'
-      : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <motion.img
-            src={logoHero2}
-            alt="Vire o Jogo com a VOIA"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-40 md:max-w-40"
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+        <motion.a
+          href="#hero"
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: .5 }}
+          className="flex items-center"
+        >
+          <img
+            src={logoHeader}
+            alt="DotSpot - Presença Digital que Converte"
+            className="h-11 w-auto"
           />
-        </div>
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
-          <a href="#como-funciona" className="text-zinc-300 hover:text-white transition-colors">Como funciona</a>
-          <a href="#provas" className="text-zinc-300 hover:text-white transition-colors">Casos de sucesso</a>
-          <a href="#faq" className="text-zinc-300 hover:text-white transition-colors">FAQ</a>
+        </motion.a>
+
+        <nav className="hidden lg:flex items-center gap-10 text-sm font-medium">
+
           <a
-            href={waUrlFromMessage(formatQuickMessage("Header", utmHeader))}
-            target="_blank"
-            rel="noopener"
-            className="px-6 py-2.5 rounded-full bg-orange-500 text-zinc-950 font-semibold hover:bg-orange-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
+            href="#servicos"
+            className="text-zinc-300 transition hover:text-[#FF3131]"
           >
-            Diagnóstico Gratuito
+            Serviços
           </a>
+
+          <a
+            href="#processo"
+            className="text-zinc-300 transition hover:text-[#FF3131]"
+          >
+            Processo
+          </a>
+
+          <a
+            href="#portfolio"
+            className="text-zinc-300 transition hover:text-[#FF3131]"
+          >
+            Portfólio
+          </a>
+
+          <a
+            href="#faq"
+            className="text-zinc-300 transition hover:text-[#FF3131]"
+          >
+            FAQ
+          </a>
+
+          <a
+            href={waUrlFromMessage(
+              formatQuickMessage("Header", utmHeader)
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              rounded-full
+              bg-[#FF3131]
+              px-7
+              py-3
+              font-semibold
+              text-white
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:bg-red-600
+              hover:shadow-[0_0_30px_rgba(255,49,49,.35)]
+            "
+          >
+            Solicitar Orçamento
+          </a>
+
         </nav>
-        <button className="lg:hidden p-2" aria-label="abrir menu">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+
+        <button
+          aria-label="Abrir menu"
+          className="lg:hidden text-white"
+        >
+          <svg
+            className="h-7 w-7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
+
       </div>
     </header>
   );
