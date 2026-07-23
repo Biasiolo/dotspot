@@ -76,7 +76,7 @@ export default function Solution() {
           </span>
 
           <h2 className="mt-6 text-4xl font-bold text-white lg:text-5xl">
-            Um processo simples para colocar sua empresa em destaque.
+            Um processo simples para colocar sua empresa ou serviço em destaque.
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-zinc-300">
