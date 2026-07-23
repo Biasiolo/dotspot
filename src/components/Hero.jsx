@@ -285,6 +285,7 @@ export function LeadForm() {
               <option>Loja Virtual</option>
               <option>Gestão de Tráfego</option>
               <option>Site + Tráfego</option>
+              <option>Outros</option>
             </select>
           </div>
 
