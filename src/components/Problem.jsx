@@ -67,10 +67,10 @@ export default function Problem() {
           </span>
 
           <h2 className="mt-6 text-4xl lg:text-5xl font-bold leading-tight text-white">
-            Seu próximo cliente provavelmente está procurando pela sua empresa...
+            Seu próximo cliente está procurando pela sua empresa...
             <span className="text-[#FF3131]">
-              {" "}mas encontra seu concorrente primeiro.
-            </span>
+              {" "}mas encontra o concorrente primeiro
+            </span>.
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-zinc-400">

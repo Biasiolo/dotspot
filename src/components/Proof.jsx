@@ -65,7 +65,9 @@ export default function Proof() {
         </span>
 
         <h2 className="mt-6 text-4xl lg:text-5xl font-bold text-white">
-          Experiência construída em projetos reais.
+          Experiência construída em projetos <span className="text-[#FF3131]">
+              {" "}reais
+            </span>.
         </h2>
 
         <p className="mt-6 text-lg text-zinc-400 leading-relaxed">

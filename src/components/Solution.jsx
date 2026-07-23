@@ -65,7 +65,7 @@ export default function Solution() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/75" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24">
+      <div className="relative mx-auto max-w-7xl px-5 py-24">
 
         {/* Header */}
 
@@ -76,7 +76,9 @@ export default function Solution() {
           </span>
 
           <h2 className="mt-6 text-4xl font-bold text-white lg:text-5xl">
-            Um processo simples para colocar sua empresa ou serviço em destaque.
+            Um processo simples para colocar sua empresa ou serviço em <span className="text-[#FF3131]">
+              {" "}destaque
+            </span>.
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-zinc-300">

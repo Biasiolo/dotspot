@@ -32,7 +32,9 @@ export default function CTA() {
               </span>
 
               <h2 className="text-4xl font-bold leading-tight text-white lg:text-5xl">
-                Descubra o potencial real da sua empresa no digital
+                Descubra o potencial real da sua empresa no <span className="text-[#FF3131]">
+              {" "}digital
+            </span>.
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-300">
