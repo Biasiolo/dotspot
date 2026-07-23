@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logoHeader from "@/assets/logoheader.png";
 import { useUTM } from "@/hooks/useUTM";
-import { waUrlFromMessage, formatQuickMessage } from "@/utils/whatsapp";
+import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,35 +44,35 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-10 text-sm font-medium">
 
           <a
-            href="#servicos"
+            href="#faq"
             className="text-zinc-300 transition hover:text-[#FF3131]"
           >
             Serviços
           </a>
 
           <a
-            href="#processo"
+            href="#como-funciona"
             className="text-zinc-300 transition hover:text-[#FF3131]"
           >
             Processo
           </a>
 
           <a
-            href="#portfolio"
+            href="#provas"
             className="text-zinc-300 transition hover:text-[#FF3131]"
           >
             Portfólio
           </a>
 
           <a
-            href="#faq"
+            href="#form"
             className="text-zinc-300 transition hover:text-[#FF3131]"
           >
-            FAQ
+            Contato
           </a>
 
           <a
-            href={waUrlFromMessage(
+            href={waUrl(
               formatQuickMessage("Header", utmHeader)
             )}
             target="_blank"

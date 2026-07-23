@@ -1,7 +1,8 @@
 // src/components/WhatsAppButton.jsx
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { ImWhatsapp } from "react-icons/im";
-import { waUrlFromMessage, formatQuickMessage } from "@/utils/whatsapp";
+import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
 import { useUTM } from "@/hooks/useUTM";
 
 export default function WhatsAppButton() {
@@ -9,7 +10,7 @@ export default function WhatsAppButton() {
 
   return (
     <motion.a
-      href={waUrlFromMessage(formatQuickMessage("Floating WhatsApp", utm))}
+      href={waUrl(formatQuickMessage("Floating WhatsApp", utm))}
       target="_blank"
       rel="noopener"
       className="fixed bottom-4 right-4 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-green-500 shadow-lg hover:bg-green-400 transition-all duration-300"

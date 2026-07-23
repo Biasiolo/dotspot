@@ -194,7 +194,7 @@ export default function Solution() {
         >
 
           <h3 className="text-3xl font-bold text-white">
-            Seu próximo cliente pode estar procurando pela sua empresa agora.
+            Seu próximo cliente pode estar procurando pelo seu serviço ou empresa agora.
           </h3>
 
           <p className="mx-auto mt-4 max-w-3xl leading-relaxed text-zinc-300">
@@ -204,7 +204,7 @@ export default function Solution() {
           </p>
 
           <a
-            href="#hero"
+            href="#form"
             className="
               mt-8
               inline-flex
@@ -221,7 +221,7 @@ export default function Solution() {
               hover:shadow-[0_0_35px_rgba(255,49,49,.35)]
             "
           >
-            Solicitar um orçamento
+            Começar a vender mais
           </a>
 
         </div>

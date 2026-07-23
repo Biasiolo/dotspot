@@ -204,7 +204,7 @@ export default function Proof() {
         </p>
 
         <a
-          href="#hero"
+          href="#form"
           className="
             mt-8
             inline-flex

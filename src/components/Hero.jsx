@@ -115,7 +115,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="#portfolio"
+            href="#provas"
             className="rounded-full border border-zinc-700 px-8 py-4 text-center text-white transition-all duration-300 hover:border-[#FF3131] hover:bg-white/5"
           >
             Conheça nossos projetos
@@ -278,7 +278,7 @@ export function LeadForm() {
             <Label>Serviço</Label>
             <select
               name="servico"
-              className="mt-1 h-11 w-full rounded-xl border border-zinc-700  px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
+              className="mt-1 h-11 w-full rounded-xl border border-zinc-700 bg-zinc-950  px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
             >
               <option>Site Institucional</option>
               <option>Landing Page</option>
@@ -326,7 +326,7 @@ export function LeadForm() {
         <button
           type="submit"
           disabled={status.state === "loading"}
-          className="mt-6 w-full rounded-full bg-[#FF3131] py-3.5 font-semibold text-white transition hover:bg-red-600 hover:shadow-[0_0_25px_rgba(255,49,49,.35)] disabled:opacity-60"
+          className="mt-6 w-full rounded-full bg-[#FF3131] py-3.5 cursor-pointer font-semibold text-white transition hover:bg-red-600 hover:shadow-[0_0_25px_rgba(255,49,49,.35)] disabled:opacity-60"
         >
           {status.state === "loading"
             ? "Abrindo WhatsApp..."
