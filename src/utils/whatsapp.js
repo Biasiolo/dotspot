@@ -1,4 +1,4 @@
-export const WHATSAPP_PHONE = "5512988081002"; // +55 12 98808-1002
+export const WHATSAPP_PHONE = "5511985888874"; // +55 12 98808-1002
 
 export function waUrlFromMessage(message) {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
