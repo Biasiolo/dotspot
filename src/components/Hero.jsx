@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import logoHero from "@/assets/logo.png";
 
 import video1 from "@/assets/video1.webm";
+import { IMaskInput } from "react-imask";
 import { useUTM } from "@/hooks/useUTM";
 import { formatQuickMessage, formatLeadMessage } from "@/utils/whatsapp";
 
@@ -73,7 +74,7 @@ export default function Hero() {
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-300">
           Desenvolvemos sites profissionais, landing pages de alta conversão
           e estratégias de tráfego pago para empresas que querem crescer com
-          previsibilidade.
+          previsibilidade e segurança.
         </p>
 
         {/* Benefícios */}
@@ -137,6 +138,7 @@ export default function Hero() {
 
 export function LeadForm() {
   const [status, setStatus] = useState({ state: "idle", message: "" });
+  const [whatsapp, setWhatsapp] = useState("");
   const utm = useUTM();
 
   async function handleSubmit(e) {
@@ -147,7 +149,8 @@ export function LeadForm() {
 
     if (data.company_website) return;
 
-    if (!data.nome || !data.email || !data.whatsapp) {
+    // Garantimos que o valor do whatsapp venha do state atualizado
+    if (!data.nome || !data.email || !whatsapp) {
       setStatus({
         state: "error",
         message: "Preencha Nome, E-mail e WhatsApp.",
@@ -167,12 +170,13 @@ export function LeadForm() {
 
     setStatus({
       state: "loading",
-      message: "Abrindo WhatsApp..."
+      message: "Abrindo WhatsApp...",
     });
 
     try {
       const payload = {
         ...data,
+        whatsapp, // Inclui o número já mascarado do state
         ...utm,
         origem: "Site DotSpot",
         page: window.location.href,
@@ -192,36 +196,30 @@ export function LeadForm() {
 
       setStatus({
         state: "success",
-        message: "Perfeito! Vamos continuar pelo WhatsApp."
+        message: "Perfeito! Vamos continuar pelo WhatsApp.",
       });
 
       form.reset();
-
+      setWhatsapp(""); // Limpa o campo do WhatsApp após o envio
     } catch {
-
       setStatus({
         state: "error",
-        message: "Não foi possível abrir o WhatsApp."
+        message: "Não foi possível abrir o WhatsApp.",
       });
-
     }
   }
 
   return (
     <div className="relative">
-
       {/* Glow */}
       <div className="absolute inset-0 rounded-[32px] bg-[#FF3131]/8 blur-3xl" />
 
       <form
         onSubmit={handleSubmit}
-        className="relative rounded-[32px] border border-white/10 bg-zinc-950/90 backdrop-blur-xl p-6 shadow-2xl"
+        className="relative rounded-[32px] border border-white/10 bg-zinc-950/90 p-6 shadow-2xl backdrop-blur-xl"
       >
-
         {/* Header */}
-
         <div className="text-center">
-
           <span className="inline-flex rounded-full border border-[#FF3131]/30 bg-[#FF3131]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#FF3131]">
             Orçamento Gratuito
           </span>
@@ -233,52 +231,54 @@ export function LeadForm() {
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
             Responderemos pelo WhatsApp com a melhor solução para sua empresa.
           </p>
-
         </div>
 
         {/* Campos */}
-
         <div className="mt-6 grid gap-4">
+          <Input
+            name="nome"
+            label="Nome"
+            placeholder="Seu nome"
+            required
+          />
+
+          <div className="grid grid-cols-2 gap-4">
+            <Input
+              name="empresa"
+              label="Empresa"
+              placeholder="Sua empresa"
+              
+            />
+
+            {/* Campo do WhatsApp com IMaskInput */}
+            <div>
+              <Label>WhatsApp</Label>
+              <IMaskInput
+                mask="(00) 00000-0000"
+                value={whatsapp}
+                onAccept={(value) => setWhatsapp(value)}
+                name="whatsapp"
+                placeholder="(11) 99999-9999"
+                required
+                className="mt-1 h-11 w-full rounded-xl border border-zinc-700  px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
+              />
+            </div>
+          </div>
 
           <Input
-    name="nome"
-    label="Nome"
-    placeholder="Seu nome"
-    required
-  />
-
-  <div className="grid grid-cols-2 gap-4">
-
-    <Input
-      name="empresa"
-      label="Empresa"
-      placeholder="Sua empresa"
-    />
-
-    <Input
-      name="whatsapp"
-      label="WhatsApp"
-      placeholder="(11) 99999-9999"
-      required
-    />
-
-  </div>
-
-  <Input
-    type="email"
-    name="email"
-    label="E-mail"
-    placeholder="voce@empresa.com"
-    required
-  />
+            type="email"
+            name="email"
+            label="E-mail"
+            placeholder="voce@empresa.com"
+            required
+            
+          />
 
           <div>
-
             <Label>Serviço</Label>
-
             <select
               name="servico"
-              className="mt-1 h-11 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
+              className="mt-1 h-11 w-full rounded-xl border border-zinc-700  px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
             >
               <option>Site Institucional</option>
               <option>Landing Page</option>
@@ -286,28 +286,21 @@ export function LeadForm() {
               <option>Gestão de Tráfego</option>
               <option>Site + Tráfego</option>
             </select>
-
           </div>
 
           <div>
-
             <Label>Projeto</Label>
-
             <textarea
               name="projeto"
               rows={3}
               placeholder="Conte rapidamente o que você precisa..."
-              className="mt-1 w-full resize-none rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
+              className="mt-1 w-full resize-none rounded-xl border border-zinc-700  px-4 py-3 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
             />
-
           </div>
-
         </div>
 
         {/* LGPD */}
-
         <div className="mt-5 flex gap-3 text-[11px] leading-relaxed text-zinc-500">
-
           <input
             id="lgpd"
             name="lgpd"
@@ -315,15 +308,12 @@ export function LeadForm() {
             required
             className="mt-0.5 h-4 w-4"
           />
-
           <label htmlFor="lgpd">
             Concordo com o tratamento dos meus dados para contato da DotSpot.
           </label>
-
         </div>
 
         {/* Honeypot */}
-
         <input
           type="text"
           name="company_website"
@@ -333,7 +323,6 @@ export function LeadForm() {
         />
 
         {/* Botão */}
-
         <button
           type="submit"
           disabled={status.state === "loading"}
@@ -359,15 +348,12 @@ export function LeadForm() {
         )}
 
         {/* UTM */}
-
         <input type="hidden" name="utm_source" value={utm.utm_source || ""} />
         <input type="hidden" name="utm_medium" value={utm.utm_medium || ""} />
         <input type="hidden" name="utm_campaign" value={utm.utm_campaign || ""} />
         <input type="hidden" name="utm_term" value={utm.utm_term || ""} />
         <input type="hidden" name="utm_content" value={utm.utm_content || ""} />
-
       </form>
-
     </div>
   );
 }
@@ -392,7 +378,7 @@ function Input({ label, name, type = "text", placeholder, required = false }) {
         type={type}
         placeholder={placeholder}
         required={required}
-        className="mt-1 w-full rounded-xl bg-zinc-950/50 border border-zinc-700 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500/40 transition-all"
+        className="mt-1 h-11 w-full rounded-xl border border-zinc-700  px-4 text-sm text-white outline-none transition focus:border-[#FF3131] focus:ring-2 focus:ring-[#FF3131]/20"
       />
     </div>
   );

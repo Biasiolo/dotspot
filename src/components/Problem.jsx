@@ -187,7 +187,7 @@ export default function Problem() {
       <div className="mt-24 rounded-[32px] border border-[#FF3131]/20 bg-gradient-to-r from-[#FF3131]/10 to-transparent p-8 text-center">
 
         <h3 className="text-2xl font-bold text-white">
-          A boa notícia?
+          Uma boa notícia?
         </h3>
 
         <p className="mt-3  text-zinc-300 text-center">

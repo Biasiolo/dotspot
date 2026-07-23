@@ -6,7 +6,7 @@ export function waUrlFromMessage(message) {
 
 export function formatLeadMessage(payload) {
   return [
-    "Olá, equipe VOIA! Quero agendar meu *Diagnóstico Gratuito*. Seguem meus dados:",
+    "Olá, equipe DotSpot! Quero agendar meu *Diagnóstico Gratuito*. Seguem meus dados:",
     "",
     `*Nome:* ${payload.nome}`,
     `*Empresa:* ${payload.empresa || "-"}`,
@@ -27,7 +27,7 @@ export function formatLeadMessage(payload) {
 
 export function formatQuickMessage(origin, utm = {}) {
   return [
-    "Olá, equipe VOIA! Quero meu *Diagnóstico Gratuito*.",
+    "Olá, equipe DotSpot! Quero meu *Diagnóstico Gratuito*.",
     "",
     `*Origem do clique:* ${origin}`,
     `*UTM Source:* ${utm.utm_source || "-"} | *Medium:* ${utm.utm_medium || "-"} | *Campaign:* ${utm.utm_campaign || "-"}`,
