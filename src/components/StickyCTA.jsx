@@ -13,7 +13,7 @@ export default function StickyCTA() {
         rel="noopener"
         className="block text-center w-full px-6 py-4 rounded-full bg-orange-500 text-zinc-950 font-semibold shadow-2xl hover:bg-orange-400 transition-all duration-200"
       >
-        🚀 Quero meu diagnóstico gratuito
+        Quero meu diagnóstico gratuito
       </a>
     </div>
   );

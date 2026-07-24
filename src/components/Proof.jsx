@@ -35,39 +35,37 @@ export default function Proof() {
       company: "Academia Attività",
       category: "Academia • Website Institucional",
       description:
-        "Desenvolvimento de site moderno para fortalecer a presença digital da academia, facilitar o contato com novos alunos e apresentar serviços de forma profissional.",
+        "Desenvolvimento de site moderno para fortalecer a presença digital da academia, facilitar o contato com novos alunos e apresentar seus serviços de forma profissional.",
+      url: "https://www.attivitatfi.com/",
     },
     {
       company: "Cantarola",
       category: "Marca de Meias • Branding + Website",
       description:
-        "Projeto voltado ao fortalecimento da marca e apresentação do catálogo de produtos, valorizando identidade visual e posicionamento digital.",
+        "Projeto voltado ao fortalecimento da marca e apresentação do catálogo de produtos, valorizando identidade visual, experiência do usuário e posicionamento digital.",
+      url: "https://cantarola.com",
     },
     {
       company: "Fisner Design",
       category: "Design • Website Institucional",
       description:
-        "Criação e desenvolvimento de uma presença digital alinhada ao posicionamento da empresa, destacando serviços, portfólio e canais de contato.",
+        "Criação de uma presença digital alinhada ao posicionamento da empresa, destacando serviços, portfólio e canais de contato em uma interface moderna.",
+      url: "https://fisner-design.vercel.app",
     },
   ];
 
   return (
-    <section
-      id="provas"
-      className="max-w-7xl mx-auto px-6 py-24"
-    >
+    <section id="provas" className="max-w-7xl mx-auto px-6 py-24">
       {/* Header */}
 
       <div className="text-center max-w-3xl mx-auto">
-
         <span className="inline-flex rounded-full border border-[#FF3131]/30 bg-[#FF3131]/10 px-4 py-2 text-sm font-medium text-[#FF3131]">
           Projetos desenvolvidos
         </span>
 
         <h2 className="mt-6 text-4xl lg:text-5xl font-bold text-white">
-          Experiência construída em projetos <span className="text-[#FF3131]">
-              {" "}reais
-            </span>.
+          Experiência construída em projetos
+          <span className="text-[#FF3131]"> reais</span>.
         </h2>
 
         <p className="mt-6 text-lg text-zinc-400 leading-relaxed">
@@ -75,15 +73,12 @@ export default function Proof() {
           soluções digitais que comuniquem valor, transmitam confiança e
           aproximem marcas de seus clientes.
         </p>
-
       </div>
 
       {/* Diferenciais */}
 
       <div className="grid lg:grid-cols-4 gap-6 mt-16">
-
         {stats.map((item, index) => (
-
           <div
             key={index}
             className="
@@ -98,7 +93,6 @@ export default function Proof() {
               hover:-translate-y-1
             "
           >
-
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF3131]/10 text-[#FF3131] text-2xl">
               {item.icon}
             </div>
@@ -110,19 +104,14 @@ export default function Proof() {
             <p className="mt-3 text-sm leading-relaxed text-zinc-400">
               {item.desc}
             </p>
-
           </div>
-
         ))}
-
       </div>
 
       {/* Cases */}
 
       <div className="grid lg:grid-cols-3 gap-8 mt-20">
-
         {cases.map((item) => (
-
           <article
             key={item.company}
             className="
@@ -137,7 +126,6 @@ export default function Proof() {
               hover:-translate-y-2
             "
           >
-
             <span className="inline-flex rounded-full bg-[#FF3131]/10 px-3 py-1 text-xs font-medium text-[#FF3131]">
               Case
             </span>
@@ -154,7 +142,10 @@ export default function Proof() {
               {item.description}
             </p>
 
-            <button
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 mt-8
                 inline-flex
@@ -168,15 +159,10 @@ export default function Proof() {
               "
             >
               Ver projeto
-
               <FiExternalLink />
-
-            </button>
-
+            </a>
           </article>
-
         ))}
-
       </div>
 
       {/* CTA */}
@@ -194,7 +180,6 @@ export default function Proof() {
           text-center
         "
       >
-
         <h3 className="text-3xl font-bold text-white">
           O próximo case de sucesso pode ser o da sua empresa.
         </h3>
@@ -224,7 +209,6 @@ export default function Proof() {
         >
           Marcar uma conversa
         </a>
-
       </div>
     </section>
   );

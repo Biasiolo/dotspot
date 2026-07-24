@@ -118,7 +118,7 @@ export default function FAQ() {
               hover:shadow-[0_0_35px_rgba(255,49,49,.35)]
             "
           >
-            Ainda ficou com dúvida? Fale com a gente
+            Ainda com dúvidas? Fale com a gente
             <FiArrowRight size={18} />
           </a>
 

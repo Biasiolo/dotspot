@@ -7,7 +7,7 @@ import Proof from "@/components/Proof";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import StickyCTA from "@/components/StickyCTA";
+
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 
@@ -23,7 +23,7 @@ export default function Home() {
       <CTA />
       <FAQ />
       <Footer />
-      <StickyCTA />
+
       <WhatsAppButton />
     </div>
   );
