@@ -47,7 +47,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://linkedin.com/company/dotspot"
+                href="https://www.linkedin.com/company/dotspot-mkt"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn da DotSpot"
@@ -58,7 +58,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://facebook.com/dotspot"
+                href="https://www.facebook.com/profile.php?id=61592382301691"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook da DotSpot"
