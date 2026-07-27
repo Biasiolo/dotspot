@@ -8,6 +8,7 @@ import video1 from "@/assets/video1.webm";
 import { IMaskInput } from "react-imask";
 import { useUTM } from "@/hooks/useUTM";
 import { formatQuickMessage, formatLeadMessage } from "@/utils/whatsapp";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 const WHATSAPP_PHONE = "5511985888874";
 const waUrl = (message) =>
@@ -109,6 +110,7 @@ export default function Hero() {
             href={waUrl(formatQuickMessage("Hero", utmHero))}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackGoogleAdsConversion}
             className="rounded-full bg-[#FF3131] px-8 py-4 text-center font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-[0_0_35px_rgba(255,49,49,.35)]"
           >
             Diagnóstico do seu Problema
@@ -327,6 +329,7 @@ export function LeadForm() {
         <button
           type="submit"
           disabled={status.state === "loading"}
+          onClick={trackGoogleAdsConversion}
           className="mt-6 w-full rounded-full bg-[#FF3131] py-3.5 cursor-pointer font-semibold text-white transition hover:bg-red-600 hover:shadow-[0_0_25px_rgba(255,49,49,.35)] disabled:opacity-60"
         >
           {status.state === "loading"

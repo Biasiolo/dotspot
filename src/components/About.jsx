@@ -8,6 +8,7 @@ import {
   FiZap,
   FiArrowRight,
 } from "react-icons/fi";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function About() {
   const cards = [
@@ -323,6 +324,7 @@ export default function About() {
 
           <a
             href="#form"
+            onClick={trackGoogleAdsConversion}
             className="
               mt-8
               inline-flex

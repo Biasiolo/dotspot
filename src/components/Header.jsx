@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import logoHeader from "@/assets/logoheader.png";
 import { useUTM } from "@/hooks/useUTM";
 import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +85,7 @@ export default function Header() {
             )}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackGoogleAdsConversion}
             className="
               rounded-full
               bg-[#FF3131]

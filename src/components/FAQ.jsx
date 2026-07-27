@@ -1,6 +1,7 @@
 import { FiHelpCircle, FiArrowRight } from "react-icons/fi";
 import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
 import { useUTM } from "@/hooks/useUTM";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function FAQ() {
   const utm = useUTM();
@@ -101,6 +102,7 @@ export default function FAQ() {
             href={waUrl(formatQuickMessage("FAQ CTA", utm))}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackGoogleAdsConversion}
             className="
               inline-flex
               items-center

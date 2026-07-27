@@ -1,6 +1,7 @@
 import logoFooter from "@/assets/logo.png";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -110,6 +111,7 @@ export default function Footer() {
                 <FiMail className="h-4 w-4 shrink-0 text-[#FF3131]" />
                 <a 
                   href="mailto:dotspot-mkt@gmail.com" 
+                  onClick={trackGoogleAdsConversion}
                   className="transition-colors hover:text-white"
                 >
                   dotspot-mkt@gmail.com

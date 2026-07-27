@@ -1,6 +1,7 @@
 // src/components/StickyCTA.jsx
 import { useUTM } from "@/hooks/useUTM";
 import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function StickyCTA() {
   const utmSticky = useUTM();
@@ -10,7 +11,8 @@ export default function StickyCTA() {
       <a
         href={waUrl(formatQuickMessage("StickyCTA (mobile)", utmSticky))}
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
+        onClick={trackGoogleAdsConversion}
         className="block text-center w-full px-6 py-4 rounded-full bg-orange-500 text-zinc-950 font-semibold shadow-2xl hover:bg-orange-400 transition-all duration-200"
       >
         Quero meu diagnóstico gratuito

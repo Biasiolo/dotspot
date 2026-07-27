@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ImWhatsapp } from "react-icons/im";
 import { waUrl, formatQuickMessage } from "@/utils/whatsapp";
 import { useUTM } from "@/hooks/useUTM";
+import { trackGoogleAdsConversion } from "@/utils/googleAds";
 
 export default function WhatsAppButton() {
   const utm = useUTM();
@@ -12,7 +13,8 @@ export default function WhatsAppButton() {
     <motion.a
       href={waUrl(formatQuickMessage("Floating WhatsApp", utm))}
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
+      onClick={trackGoogleAdsConversion}
       className="fixed bottom-4 right-4 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-green-500 shadow-lg hover:bg-green-400 transition-all duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

@@ -2,6 +2,7 @@
 
 import graph from "@/assets/graph.jpg";
 
+
 import {
   FiSearch,
   FiMonitor,
