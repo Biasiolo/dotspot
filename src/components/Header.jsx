@@ -58,6 +58,13 @@ export default function Header() {
           </a>
 
           <a
+            href="#sobre"
+            className="text-zinc-300 transition hover:text-[#FF3131]"
+          >
+            Sobre
+          </a>
+
+          <a
             href="#provas"
             className="text-zinc-300 transition hover:text-[#FF3131]"
           >

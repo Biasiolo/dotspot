@@ -28,7 +28,7 @@ export default function CTA() {
           <div className="space-y-8">
             <div className="space-y-4">
               <span className="inline-flex rounded-full border border-[#FF3131]/30 bg-[#FF3131]/10 px-4 py-2 text-sm font-medium text-[#FF3131]">
-                Diagnóstico Gratuito
+                Diagnóstico Estratégico Gratuito
               </span>
 
               <h2 className="text-4xl font-bold leading-tight text-white lg:text-5xl">

@@ -74,7 +74,7 @@ export default function Problem() {
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-zinc-400">
-            Hoje, a primeira impressão acontece antes do primeiro contato.
+            Todos os dias pessoas pesquisam exatamente pelo serviço que você oferece.
             Quem possui uma presença digital profissional sai na frente.
           </p>
 

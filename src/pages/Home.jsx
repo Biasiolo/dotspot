@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 import WhatsAppButton from "@/components/WhatsAppButton";
+import About from "../components/About";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <TrustBar />
       <Problem />
       <Solution />
+      <About />
       <Proof />
       <CTA />
       <FAQ />
