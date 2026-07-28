@@ -8,22 +8,93 @@ export function waUrl(message) {
 }
 
 /**
+ * Formata a página de origem removendo parâmetros de rastreamento.
+ */
+function formatPage(url = "") {
+  try {
+    const parsed = new URL(url);
+
+    const path =
+      parsed.pathname === "/"
+        ? ""
+        : parsed.pathname;
+
+    return `${parsed.hostname}${path}`;
+  } catch {
+    return "Não identificado";
+  }
+}
+
+/**
+ * Deixa valores de UTM mais legíveis.
+ */
+function formatUTMValue(value = "") {
+  return value
+    .replaceAll("_", " ")
+    .replaceAll("+", " ")
+    .trim();
+}
+
+/**
  * Monta o bloco de UTMs somente quando existir pelo menos uma.
  */
 function formatUTMs(utm = {}) {
   const lines = [];
 
-  if (utm.utm_source) lines.push(`• Source: ${utm.utm_source}`);
-  if (utm.utm_medium) lines.push(`• Medium: ${utm.utm_medium}`);
-  if (utm.utm_campaign) lines.push(`• Campaign: ${utm.utm_campaign}`);
-  if (utm.utm_term) lines.push(`• Term: ${utm.utm_term}`);
-  if (utm.utm_content) lines.push(`• Content: ${utm.utm_content}`);
+  const sources = {
+    google: "Google Ads",
+    facebook: "Facebook Ads",
+    instagram: "Instagram",
+    organic: "Busca orgânica",
+  };
+
+  const mediums = {
+    cpc: "Anúncio pago",
+    organic: "Orgânico",
+    social: "Rede social",
+  };
+
+  if (utm.utm_source) {
+    lines.push(
+      `• Origem: ${
+        sources[utm.utm_source] ||
+        formatUTMValue(utm.utm_source)
+      }`
+    );
+  }
+
+  if (utm.utm_medium) {
+    lines.push(
+      `• Mídia: ${
+        mediums[utm.utm_medium] ||
+        formatUTMValue(utm.utm_medium)
+      }`
+    );
+  }
+
+  if (utm.utm_campaign) {
+    lines.push(
+      `• Campanha: ${formatUTMValue(utm.utm_campaign)}`
+    );
+  }
+
+  if (utm.utm_term) {
+    lines.push(
+      `• Busca: ${formatUTMValue(utm.utm_term)}`
+    );
+  }
+
+  if (utm.utm_content) {
+    lines.push(
+      `• Anúncio: ${formatUTMValue(utm.utm_content)}`
+    );
+  }
 
   if (!lines.length) return [];
 
   return [
     "",
-    "*UTMs*",
+    "*Origem do Lead*",
     ...lines,
   ];
 }
@@ -51,7 +122,7 @@ export function formatLeadMessage(payload) {
     "━━━━━━━━━━━━━━━━━━",
     "",
     `*Origem:* ${payload.origem}`,
-    `*Página:* ${payload.page}`,
+    `*Página:* ${formatPage(payload.page)}`,
     ...formatUTMs(payload),
     "",
     `*Data:* ${new Date().toLocaleString("pt-BR")}`,
