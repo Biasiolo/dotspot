@@ -86,7 +86,7 @@ export default function About() {
           </span>
 
           <h2 className="mt-6 text-4xl font-bold text-white lg:text-5xl">
-            Mais do que criar sites, criamos empresas preparadas para{" "}
+            Criamos empresas preparadas para{" "}
             <span className="text-[#FF3131]">
               crescer no digital
             </span>.
