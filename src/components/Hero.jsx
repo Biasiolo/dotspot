@@ -68,8 +68,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="max-w-2xl text-5xl font-black leading-tight text-white">
-          Desenvolvemos sites profissionais, landing pages de alta conversão
-          e estratégias de tráfego pago.
+          Desenvolvemos sites profissionais e estratégias de tráfego pago.
           
         </h1>
 
