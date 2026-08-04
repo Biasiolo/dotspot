@@ -98,7 +98,7 @@ export default function Header() {
                 hover:shadow-[0_0_30px_rgba(255,49,49,.35)]
               "
             >
-              Solicitar Orçamento
+              Fale Conosco
             </a>
 
           </nav>
