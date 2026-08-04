@@ -68,14 +68,14 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="max-w-2xl text-5xl font-black leading-tight text-white">
-          Estratégias e processos que transformam visitantes em clientes.
+          Desenvolvemos sites profissionais, landing pages de alta conversão
+          e estratégias de tráfego pago.
+          
         </h1>
 
         {/* Texto */}
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-300">
-          Desenvolvemos sites profissionais, landing pages de alta conversão
-          e estratégias de tráfego pago para empresas que querem crescer com
-          previsibilidade e segurança.
+          Processos e soluções que transformam visitantes em clientes.
         </p>
 
         {/* Benefícios */}
