@@ -51,7 +51,7 @@ export default function Hero() {
       }}
     />
 
-    <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-4 py-28 lg:grid-cols-2">
+    <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-3 py-28 lg:grid-cols-2">
 
       {/* Conteúdo */}
       <div className="-mt-10">
