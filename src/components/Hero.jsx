@@ -68,7 +68,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="max-w-2xl text-5xl font-black leading-tight text-white">
-          Sites profissionais e estratégias de tráfego pago.
+          Sites profissionais, sistemas e estratégias de tráfego pago.
         </h1>
 
         {/* Texto */}
